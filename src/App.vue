@@ -4,32 +4,30 @@
       <nav>
         <ul>
           <li class="nav-item">
-            <a href="/">
+            <router-link :to="{ name: 'home' }">
               <img class="logo" src="./assets/marvel-characters-logo.png" />
               Home
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a href="/characters">Characters</a>
+            <router-link :to="{ name: 'characters' }">Characters</router-link>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <!-- <router-view /> -->
-      <CharacterList />
+      <router-view />
     </main>
   </div>
 </template>
 
 <script>
 // import HomePage from './home/HomePage.vue';
-import CharacterList from './list/CharacterList.vue';
+// import CharacterList from './list/CharacterList.vue';
 
 export default {
   name: 'app',
   components: {
-    CharacterList,
 
   },
 };

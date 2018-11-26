@@ -1,29 +1,21 @@
 <template>
-  <div class="container">
-    <div class="left-panel">
-      <img v-bind:src="characters[0].src" title="hero" />
-    </div>
-    <div class="right-panel">
-      <div style="display: block;">
-        <h4>Antman</h4>
-        <p>Nice little fella</p>
+  <div class="outer-container">
+    <div class="character-list" v-for="character in characters" :key="character.id">
+      <div class="left-panel">
+        <img v-bind:src="character.src" v-bind:title="character.name" />
+      </div>
+      <div class="right-panel">
+        <div class="inner-container">
+          <h4>{{ character.name }}</h4>
+          <p>{{ character.intro }}</p>
+          <div>
+            <strong class="label">Power / Abilities</strong>
+            <p>{{ character.superpower }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-
-  <!-- <div>
-    <ul>
-      <li>hero 1</li>
-      <li>hero 2</li>
-      <li>hero 3</li>
-      <li>hero 4</li>
-      <li>hero 5</li>
-      <li>hero 6</li>
-      <li>hero 7</li>
-      <li>hero 8</li>
-    </ul>
-  </div> -->
 </template>
 
 <script>
@@ -34,23 +26,46 @@ export default {
   data() {
     return {
       characters,
+
     };
   },
 };
 </script>
 
 <style>
-.container {
-  display: flex;
+
+.outer-container {
+  display: block;
 }
+
+.character-list {
+  display: flex;
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 15px;
+}
+
+.label {
+  text-decoration: underline;
+}
+
 .left-panel {
   display: inline-flex;
+  padding: 0.5em 1.5em 0 .5em;
+  border-right: 1px #e9e9e9 solid;
 }
+
+.left-panel img {
+  width: 10em;
+  height: 14em;
+}
+
 .right-panel {
   display: inline-flex;
+  padding: 0 1em 0 1em;
 }
 
-.right-panel h4 {
-
+.right-panel .inner-container {
+  display: block;
 }
+
 </style>
