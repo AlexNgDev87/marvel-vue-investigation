@@ -2,11 +2,11 @@
   <div class="outer-container">
     <div class="character-list" v-for="character in characters" :key="character.id">
       <div class="left-panel">
-        <img v-bind:src="character.src" v-bind:title="character.name" />
+        <img :src="character.src" :title="character.name" />
       </div>
       <div class="right-panel">
         <div class="inner-container">
-          <h4>{{ character.name }}</h4>
+          <h4><router-link :to="{ name: 'charactersDetail', params: { id: character.id }}">{{ character.name }}</router-link></h4>
           <p>{{ character.intro }}</p>
           <div>
             <strong class="label">Power / Abilities</strong>
@@ -55,8 +55,8 @@ export default {
 }
 
 .left-panel img {
-  width: 10em;
-  height: 14em;
+  width: 9.7em;
+  height: 11.9em;
 }
 
 .right-panel {
